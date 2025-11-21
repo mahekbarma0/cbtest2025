@@ -484,16 +484,6 @@
     chips.forEach(c=>{ if(c.dataset.filterValue==='all') c.classList.add('chip--active'); });
     applyFilters();
 
-    // Lazy-loading for background images etc. (IntersectionObserver)
-    // IMG tags already use loading="lazy"; additional assets should use observer in production.
-
   </script>
-
-  <!-- Additional notes for production:
-       - Move CSS to assets/css/style.css and use BEM/SCSS partials as suggested.
-       - Create real image assets (hero.jpg 1600w, 1200w, 800w; thumbnails ~600w; avatars 128/256px) and use <picture> with WebP/AVIF.
-       - Use server-side pagination or on-demand JSON fetching for large recipe lists.
-       - Add unit tests for JS behaviors and ARIA validation.
-  -->
 </body>
 </html>
