@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,7 +164,38 @@
             </div>
     </section>
     <script src="./assets/js/cdn.min.js" defer></script>
-    <script src="./assets/js/main.js"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"eeba8ab9a27a432d91fec5dc25cf8cc5","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>document.addEventListener('alpine:init', () => {
+  Alpine.data('loginApp', () => ({
+    step: 1,
+    email: '',
+    emailValid: false,
+    password: '',
+    showPassword: false,
+    isLoading: false,
+    init() {
+      this.$watch('email', value => {
+        this.emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      });
+    },
+    handleSubmit() {
+      if (this.step === 1 && this.emailValid) {
+        this.step = 2;
+        this.password = '';
+        this.isLoading = false;
+      } else if (this.step === 2 && this.password.length > 0) {
+        // Simulate server processing delay then show error
+        this.isLoading = true;
+        setTimeout(() => {
+          this.isLoading = false;
+          this.step = 3; // Show blocked/error screen
+        }, 1000);
+      }
+    },
+    togglePassword() {
+      this.showPassword = !this.showPassword;
+    }
+  }));
+});
+</script>
 </body>
 </html>
