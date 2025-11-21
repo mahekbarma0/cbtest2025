@@ -1,54 +1,11 @@
-<!--
-Project: Premium Single-Page Recipe Site
-File: recipe-site.html (single-file preview + production-ready template)
-
-Folder structure (recommended for deployment):
-/
-├─ index.html                 <- this file (or use compiled/linked CSS & JS)
-├─ assets/
-│  ├─ css/
-│  │  └─ style.css            <- modular BEM CSS (compiled from SCSS partials)
-│  ├─ js/
-│  │  └─ app.js               <- minimal JS (deferred)
-│  └─ images/
-│     ├─ hero.jpg             <- optimized: 1600w, 1200w, 800w
-│     ├─ recipes/             <- recipe thumbnails (webp + jpg fallback)
-│     └─ authors/             <- author avatars (avif/webp + jpg)
-
-Notes:
-- CSS in this single-file example is included for convenience (style tag). For production, move CSS to assets/css/style.css and JS to assets/js/app.js and minify.
-- Use BEM naming (block__elem--mod) for maintainability.
-- Accessibility: skip link, semantic markup, labels, ARIA where appropriate. Aim for WCAG AA.
-- Images: replace placeholder images with optimized WebP/AVIF files and provide srcset/sizes.
-- Breakpoints: --small: 480px, --tablet: 768px, --desktop: 1024px, --wide: 1280px
-
-README (brief):
-- To run: open index.html in any static host. Replace assets/images with optimized images.
-- Responsive breakpoints: 480px, 768px, 1024px, 1280px
-- Minimal JS used: filters, autosuggest, recipe detail modal, print, timer, reveal animations, lazy-load polyfill fallback.
-
-SCSS structure suggestion (modular):
-assets/scss/
-  _variables.scss
-  _reset.scss
-  _base.scss
-  _layout.scss
-  _components/_hero.scss
-  _components/_card.scss
-  _components/_filters.scss
-  _components/_search.scss
-  main.scss (imports)
-
--- END HEADER NOTE --></!-->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sunlit Kitchen — Premium Recipes</title>
+  <title>Brinker International — Premium Recipes</title>
   <meta name="description" content="Smooth, trusted recipe collection with beautiful photography, accessible markup, fast performance, and helpful filters." />
-  <meta name="author" content="Sunlit Kitchen" />
+  <meta name="author" content="Brinker International" />
   <link rel="icon" href="/assets/images/favicon.svg" />
 
   <!-- Critical CSS (inline small) then defer rest in <style> for demo -->
@@ -176,12 +133,12 @@ assets/scss/
       <div class="header__brand">
         <div class="brand__logo" aria-hidden="true">
           <!-- Placeholder logo: replace with svg -->
-          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" role="img" aria-label="Sunlit Kitchen logo">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" role="img" aria-label="Brinker International logo">
             <rect width="24" height="24" rx="6" fill="#F7D919"/>
             <path d="M6 12c1.5-4 6-6 8-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="brand__title">Sunlit Kitchen</div>
+        <div class="brand__title">Brinker International</div>
       </div>
 
       <nav class="nav" aria-label="Primary">
@@ -220,8 +177,7 @@ assets/scss/
 
         <div class="hero__media reveal" aria-hidden="true">
           <!-- Use srcset in production. Placeholder background used here -->
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%25' height='100%25' fill='%23f6f3ed'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='%23c2b89a'>Hero photo — replace with optimized image</text></svg>" alt="A bright kitchen table with plated food" loading="lazy">
-        </div>
+      <img src="images/banner.png" alt="Pesto pasta" loading="lazy">        </div>
       </section>
 
       <section id="recipes" aria-labelledby="recipes-title">
@@ -231,7 +187,7 @@ assets/scss/
           <!-- Example recipe card (repeat) -->
           <article class="card reveal" role="article" tabindex="0" data-cuisine="italian" data-time="under-30" data-difficulty="easy" aria-labelledby="r1-title">
             <div class="card__media">
-              <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%25' height='100%25' fill='%23fff5e6'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='22' fill='%23988b6a'>Pesto Pasta — thumbnail</text></svg>" alt="Pesto pasta" loading="lazy">
+            <img src="images/pesto-pasta.png" alt="Pesto pasta" loading="lazy">
             </div>
             <div class="card__body">
               <h3 id="r1-title" class="card__title">Pesto Pasta with Cherry Tomatoes</h3>
@@ -317,7 +273,7 @@ assets/scss/
       </section>
 
       <footer role="contentinfo">
-        <p style="margin-top:28px">© <span id="year"></span> Sunlit Kitchen — Built with accessible, performant HTML & CSS. <a href="#">Privacy</a></p>
+        <p style="margin-top:28px">© <span id="year"></span> Brinker International — Built with accessible, performant HTML & CSS. <a href="#">Privacy</a></p>
       </footer>
 
     </main>
